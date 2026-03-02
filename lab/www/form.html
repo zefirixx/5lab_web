@@ -1,0 +1,79 @@
+<!--Form-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация на конференцию</title>
+<body>
+
+<h2>Регистрация на конференцию</h2>
+
+<form id="conferenceForm" action="process.php" method="POST">
+
+    <label>
+        Имя:<br>
+        <input type="text" name="name" placeholder="Введите имя" required>
+    </label>
+    <br><br>
+
+    <label>
+        Год рождения:<br>
+        <input type="number" name="birthyear" min="1800" max="2100" required>
+    </label>
+    <br><br>
+
+    <label>
+        Секция:<br>
+        <select name="section" required>
+            <option value="">Выберите секцию</option>
+            <option value="it">IT и программирование</option>
+            <option value="science">Научные исследования</option>
+            <option value="business">Бизнес и управление</option>
+        </select>
+    </label>
+    <br><br>
+
+
+    <label>
+        <input type="checkbox" name="certificate">
+        Нужен сертификат
+    </label>
+    <br><br>
+
+    Форма участия:<br>
+    <label>
+        <input type="radio" name="participation" value="offline" required>
+        Очная
+    </label><br>
+
+    <label>
+        <input type="radio" name="participation" value="online">
+        Онлайн
+    </label>
+    <br><br>
+
+    <button type="submit">Отправить</button>
+
+</form>
+
+</body>
+</html>
+
+<!--PHP Processing-->
+<script>
+document.getElementById("conferenceForm").addEventListener("submit", function(e) {
+
+    const name = this.name.value;
+    const year = this.birthyear.value;
+    const section = this.section.value;
+    const participation = this.participation.value;
+
+    alert(
+        "Вы ввели: " +
+        name + ", " +
+        year + ", секция: " +
+        section + ", форма участия: " +
+        participation
+    );
+});
+</script>
